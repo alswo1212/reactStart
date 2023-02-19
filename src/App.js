@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
+import Home from "./routes/Home"
+import Detail from "./routes/Detail"
+// Routes는 한번에 하나의 Route만 랜더링 하기 위한 태그이다. 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return (<Router>
+            <Routes> 
+              <Route path={`${process.env.PUBLIC_URL}`} element={<Home />}></Route>
+              <Route path="/movie/:id" element ={<Detail/>}></Route>
+            </Routes>
+        </Router>
   );
 }
-
 export default App;
